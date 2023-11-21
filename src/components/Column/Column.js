@@ -81,7 +81,24 @@ function Column({
         Object.keys(data).map((status, index) => (
           <div className="column" key={index}>
             <div className="columnHeading">
-              <h3>{status}</h3>
+            <h3>
+          {(() => {
+            switch (status) {
+              case "4":
+                return "Urgent";
+              case "3":
+                return "High";
+              case "2":
+                return "Medium";
+              case "1":
+                return "Low";
+              case "0":
+                return "No priority";
+              default:
+                return status;
+            }
+          })()}
+        </h3>
               <button
                 className="addNew"
                 onClick={() => openAddNewTaskAddTask(status)}
@@ -138,7 +155,7 @@ function Column({
                       </button>
                     </div>
                   ))
-                ) : (
+                ) : ( // incase data is not an array but object.....
                   Object.values(data[status]).map((ticket, ticketIndex) => (
                     <div
                       className="item"
