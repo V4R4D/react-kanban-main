@@ -98,7 +98,7 @@ body {
 .AddTaskWrapper {
   height: 70%;    
   width: 50%;
-  background: white;
+  background: rgb(229, 228, 218);
   position: fixed;
   overflow:auto;
   z-index: 10;
